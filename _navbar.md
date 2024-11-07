@@ -1,6 +1,6 @@
 - 链接到我 
 
-  * [关于本人](G:\tools\Docsify\docsify\blog\关于本人\关于本人.md) 
+  * [关于本人](blog\关于本人\关于本人.md) 
 
   * [博客园地址](https://home.cnblogs.com/u/chatBlog)
   * [Github地址](https://github.com/wwwqqqzzz)
