@@ -2,3 +2,4 @@
 2. [首页](README.md)
 3. [搭建网站](blog/website/搭建个人博客.md)
 4. [Linux 安装配置 Nginx](blog\Linux安装配置Nginx/Linux安装配置Nginx.md)
+5. [win7+idea配置flink](G:\tools\Docsify\docsify\blog\win7+idea配置flink\基于Windows 7的Flink实验.md)
