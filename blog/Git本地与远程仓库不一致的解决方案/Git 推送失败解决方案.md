@@ -174,17 +174,23 @@ git push origin master --force
 > git branch -m main master  # 将本地 main 分支重命名为 master
 > ```
 >
+> ![image-20241108023553462](https://cdn.jsdelivr.net/gh/wwwqqqzzz/Image/img/image-20241108023553462.png)
+>
 > 然后推送到远程：
 >
 > ```bash
 > git push origin master  # 推送到远程 master 分支
 > ```
 >
+> ![image-20241108023621192](https://cdn.jsdelivr.net/gh/wwwqqqzzz/Image/img/image-20241108023621192.png)
+>
 > 接下来，你可能需要更新远程跟踪分支和上游配置：
 >
 > ```bash
 > git branch --set-upstream-to=origin/master master
 > ```
+>
+> ![image-20241108023659987](https://cdn.jsdelivr.net/gh/wwwqqqzzz/Image/img/image-20241108023659987.png)
 >
 > 这将本地 `master` 分支与远程 `master` 分支关联起来，确保后续的 `pull` 和 `push` 都正常工作。
 >
