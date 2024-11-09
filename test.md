@@ -84,7 +84,6 @@ AWS --> Maven : 部署到云
 Azure --> Maven : 部署到云
 
 @enduml
-
 ```
 
 mermaid绘图
@@ -126,7 +125,6 @@ graph TD
     end
   end
 
-  %% 前端与后端的连接
   Vue --> Axios
   Vue --> Vuex
   Vue --> VueRouter
@@ -134,20 +132,19 @@ graph TD
   Vue --> jQuery
   Vue --> JSP
 
-  %% 后端与数据库的连接
+
   SpringBoot --> MyBatisPlus
   SpringBoot --> MySQL
   SpringBoot --> Redis
 
-  %% 开发工具的配合
+
   Git --> IDEA
   Git --> VSCode
   Maven --> SpringBoot
 
-  %% 云服务
+
   AWS --> Maven
   Azure --> Maven
-
 ```
 
 
@@ -170,5 +167,31 @@ graph TD
 
 ```pdf
 https://gbodigital.github.io/docsify-gifcontrol/#/
+```
+
+
+
+
+
+### Q&A
+
+# FAQ Section
+
+Introduction text for the FAQ page.
+
++ 我是谁? +
+
+  wqz
+
++ 这是什么 +
+
+  blog
+
+
+
+### HTML Preview
+
+```html preview
+<p>Hello, World.</p>
 ```
 

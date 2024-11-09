@@ -53,11 +53,6 @@ classDiagram
 ```
 
 ```java
-/**
- * 功能:
- * 作者: 王起哲
- * 日期: 2024/11/9 下午8:32
- */
 package com.mtw.test.Service;
 
 import org.springframework.stereotype.Service;
@@ -131,11 +126,6 @@ classDiagram
 
 
 ```java
-/**
- * 功能:
- * 作者: 王起哲
- * 日期: 2024/11/9 下午8:34
- */
 package com.mtw.test.Aspect;
 
 import org.aspectj.lang.annotation.After;
@@ -188,11 +178,6 @@ classDiagram
 
 
 ```java
-/**
- * 功能:
- * 作者: 王起哲
- * 日期: 2024/11/9 下午8:56
- */
 package com.mtw.test.Config;
 
 import org.springframework.context.annotation.Configuration;
@@ -225,11 +210,6 @@ classDiagram
 
 
 ```java
-/**
- * 功能:
- * 作者: 王起哲
- * 日期: 2024/11/9 下午9:07
- */
 package com.mtw.test.Test;
 
 import com.mtw.test.Config.Appconfig;

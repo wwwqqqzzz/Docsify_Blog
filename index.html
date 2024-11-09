@@ -12,13 +12,17 @@
   <!-- gif图片 -->
   <link rel="stylesheet" href="//unpkg.com/docsify-gifcontrol/dist/docsify-gifcontrol.css">
   <!-- 目录跳转 右 -->
-  <link rel="stylesheet" href="https://unpkg.com/docsify-toc@1.0.0/dist/toc.css">
+  <!-- <link rel="stylesheet" href="https://unpkg.com/docsify-toc@1.0.0/dist/toc.css"> -->
   <!-- 侧边栏样式 -->
   <!-- 样式一:  -->
   <!-- <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify-sidebar-collapse/dist/sidebar.min.css" /> -->
   <!-- 样式二:  -->
   <!-- <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify-sidebar-collapse/dist/sidebar-folder.min.css" /> -->
-  
+  <link rel="stylesheet"href="//cdn.jsdelivr.net/npm/docsify-demo@latest/dist/index.min.css"/>
+  <script async 
+    src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9407574894157466"
+    crossorigin="anonymous">
+  </script>
 </head>
 <body>
 
@@ -42,11 +46,16 @@
       subMaxLevel: 3,
       // 小屏设备下合并导航栏到侧边栏
       mergeNavbar: true,
+      // 切换页面后是否自动跳转到页面顶部
+      auto2top: true,
       // 字数统计
       // count: {
-      // fontsize: '0.9em',
-      // color: 'rgb(90,90,90)',
-      // language: 'chinese'
+      //   countable: true,
+      //   fontsize: '0.9em',
+      //   color: 'rgb(90,90,90)',
+      //   language: 'chinese',
+      //   isExpected: true,
+      //   float: 'right',
       // },
       // 配置搜索参数
       search: 'auto', // 默认值
@@ -66,20 +75,8 @@
         whatsapp: true,            
         telegram: true,   
       },
-      // 章节(下一章)
-      pagination: {
-        previousText: '回去瞅瞅~ 👀',
-        nextText: '下一卷喽~ 📜',
-        crossChapter: true,
-        crossChapterText: true,
-      },
-      tabs:{
-        persist: true, // default
-        sync: true, // default
-        theme: 'classic', // default
-        tabComments: true, // default
-        tabHeadings: true // default
-      },
+
+  
       // 绘图(流程图)
       plantuml: {
         skin: 'classic',
@@ -88,11 +85,11 @@
       'flexible-alerts': {
         style: 'callout', // default'
       },
-      // 目录跳转 右
+      // toc
       toc: {
-        scope: '.markdown-section',
-        headings: 'h1, h2, h3, h4, h5, h6',
-        title: 'Table of Contents',
+        tocMaxLevel: 5,
+        target: "h2, h3, h4, h5",
+        ignoreHeaders: ["<!-- {docsify-ignore} -->", "<!-- {docsify-ignore-all} -->"],
       },
       // footer插件
       footer: {
@@ -106,13 +103,39 @@
       mermaidConfig: {
         querySelector: ".mermaid"
       },
-      // 阅读进度条
-      progress: {
-        position: "top",
-        color: "var(--theme-color,#42b983)",
-        height: "3px",
-    }
-      
+      // gitalk评论
+      gitalk: {
+        clientID: 'Ov23lihhW3IDY6vPDgR1',
+        clientSecret: 'be4320207956e6a4d7febbe0127bef612e7d188e',
+        repo: 'docsify-note-02',
+        owner: 'wwwqqqzzz',
+        admin: ['wwwqqqzzz'],
+        distractionFreeMode: false,
+        id:decodeURI(window.location.pathname)
+      },
+      // 分页导航
+        pagination: {
+          previousText: '上一章节',
+          // or
+          nextText: {
+            '/en/': 'NEXT',
+            '/': '下一章节'
+          },
+          crossChapter: true,
+          crossChapterText: true,
+        },
+      // 百度统计ID
+      baiduTjId: "6b15ae5b3d5dbf9156bf43edbbbcf572",
+      // 访问量
+      busuanzi: true,
+      // 广告
+      ads: [
+        {
+          img: 'https://dn-lego-static.qbox.me/cps/1638355965-480x300.jpg',
+          href: 'https://s.qiniu.com/VnQRNz'
+        },
+        
+      ]
     }
   </script>
 
@@ -125,16 +148,12 @@
   <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/search.min.js"></script>
   <!-- 剪切板 -->
   <script src="//cdn.jsdelivr.net/npm/docsify-copy-code/dist/docsify-copy-code.min.js"></script>
-  <!-- 分页插件 -->
-  <script src="//cdn.jsdelivr.net/npm/docsify-pagination/dist/docsify-pagination.min.js"></script>
+ 
   <!-- 字数统计 -->
   <script src="//unpkg.com/docsify-count/dist/countable.js"></script>
   <!-- 分享插件 -->
   <script src="//unpkg.com/docsify-share/build/index.min.js"></script>
-  <!-- 章节插件 -->
-  <script src="//unpkg.com/docsify-pagination/dist/docsify-pagination.min.js"></script>
-  <!-- tabs插件 -->
-  <script src="https://cdn.jsdelivr.net/npm/docsify-tabs@1"></script>
+
   <!-- plantuml绘图插件 -->
   <script src="//unpkg.com/docsify-plantuml/dist/docsify-plantuml.min.js"></script>
   <!-- mermaid绘图插件 -->
@@ -144,6 +163,7 @@
     window.mermaid = mermaid;
   </script>
   <script src="//unpkg.com/docsify-mermaid@2.0.1/dist/docsify-mermaid.js"></script>
+
   <!-- pdf插件 -->
   <!-- PDFObject.js is a required dependency of this plugin -->
   <script src="//cdnjs.cloudflare.com/ajax/libs/pdfobject/2.1.1/pdfobject.min.js"></script> 
@@ -151,23 +171,67 @@
   <script src="path-to-file/docsify-pdf-embed.js"></script>
   <!-- or use this if you are not hosting the file yourself -->
   <script src="//unpkg.com/docsify-pdf-embed-plugin/src/docsify-pdf-embed.js"></script>
+
   <!-- alerts高亮插件 -->
-  <!-- Latest -->
   <script src="https://unpkg.com/docsify-plugin-flexible-alerts"></script>
   <!-- gif图片 -->
   <script src="//unpkg.com/docsify-gifcontrol/dist/docsify-gifcontrol.js"></script>
-  <!-- 目录跳转 右 -->
-  <!-- <script src="https://unpkg.com/docsify-toc@1.0.0/dist/toc.js"></script> -->
+  
+  <!-- 图片缩放 -->
+  <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/zoom-image.min.js"></script>
+  <!-- toc  -->
+  <link rel="stylesheet" href="https://unpkg.com/docsify-plugin-toc@1.3.1/dist/light.css">
+  <script src="https://unpkg.com/docsify-plugin-toc@1.3.1/dist/docsify-plugin-toc.min.js"></script>
+
   <!-- footer插件 -->
   <script src="//unpkg.com/docsify-footer-enh/dist/docsify-footer-enh.min.js"></script>
-  <!-- 两列布局插件 -->
-  <!-- <script src="//unpkg.com/docsify-slides/dist/docsify-slides.min.js"></script> -->
-  <!-- 给网页上的中文和英文、数字、符号之间添加空格 -->
-  <script src="//cdn.jsdelivr.net/npm/docsify-pangu/lib/pangu.min.js"></script>
   <!-- 侧边栏样式 -->
   <!-- <script src="//cdn.jsdelivr.net/npm/docsify-sidebar-collapse/dist/docsify-sidebar-collapse.min.js"></script> -->
-  <!-- 阅读进度条 -->
-  <script src="https://cdn.jsdelivr.net/npm/docsify-progress@latest/dist/progress.min.js"></script>
+  <!-- 回到顶部插件 -->
+  <script src="https://cdn.jsdelivr.net/gh/Sumsung524/docsify-backTop/dist/docsify-backTop.min.js"></script>
+  <script>
+    docsifyBackTop = {
+        size: 58,           	// 数值，组件大小，默认值32。
+        bottom: 15,         	// 数值，组件底部偏移距离，默认值15。
+        right: 100,          	// 数值，组件右侧偏移距离，默认值15。
+        logo: '<svg t="1731178817405" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="12027" width="200" height="200"><path d="M792.748 599.403l-257.312-259.001c-5.7-5.73-13.683-8.998-23.437-8.998s-16.541 3.881-21.63 8.971l-261.758 260.585c-11.205 11.174-11.231 29.313-0.031 40.513 13.731 13.731 34.927 5.614 40.544 0.056l214.226-213.168v372.648c0 15.844 12.835 28.653 28.649 28.653 15.817 0 28.653-12.813 28.653-28.653v-374.053l211.469 212.845c5.587 5.617 12.981 8.453 20.311 8.453 7.337 0 14.615-2.784 20.202-8.338 11.257-11.148 11.288-29.313 0.113-40.514v0 0zM827.161 251.635h-630.316c-15.817 0-28.653-12.835-28.653-28.645 0-15.818 12.835-28.653 28.653-28.653h630.316c15.84 0 28.645 12.835 28.645 28.653 0 15.81-12.805 28.645-28.645 28.645v0 0zM827.161 251.635z" fill="#272636" p-id="12028"></path></svg>',				// logo:字符串或svg矢量图代码，默认为svg代码图标。
+        bgColor: '\#2096ff'    	// 背景颜色，#fff、pink等，logo为svg图标时，不填。
+    };
+  </script>
+  <!-- 百度统计 -->
+  <script src="https://unpkg.com/docsify-baidu-tj@1.0.2/dist/docsify-baidu-tj.min.js"></script>
+  <!-- <script>
+    var _hmt = _hmt || [];
+    (function(){
+      var host = window.Location.host;
+      if(host.startswith("localhost") || host.startswith("127.0.0.1")){
+        return;
+      }
+    var hm = document.createElement("script");
+    hm.src = "https://hm.baidu.com/hm.js?6b15ae5b3d5dbf9156bf43edbbbcf572";
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(hm,s);
+    })();
+  </script> -->
+
+  <!-- GitTalk评论 -->
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk/dist/gitalk.css">
+  <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/gitalk.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/gitalk/dist/gitalk.min.js"></script>
+  <script src="https://unpkg.com/docsify-gitalk@1.0.0/dist/docsify-gitalk.min.js"></script>
+  <!-- Q&A插件 -->
+  <link rel="stylesheet" href="//unpkg.com/docsify-accordion/src/style.css">
+  <script src="//unpkg.com/docsify-accordion/src/index.js"></script>
+  <!--html preview demo-->
+  <script src="//cdn.jsdelivr.net/npm/docsify-demo@latest/dist/index.min.js"></script>
+  <!-- 空格 -->
+   <script src="//cdn.jsdelivr.net/npm/docsify-pangu/lib/pangu.min.js"></script>
+  <!-- 访问量插件 -->
+  <script src="https://unpkg.com/docsify-busuanzi@1.0.1/dist/docsify-busuanzi.min.js"></script>
+  <!-- 分页插件 -->
+  <script src="//cdn.jsdelivr.net/npm/docsify-pagination/dist/docsify-pagination.min.js"></script>
+  <!-- 广告 -->
+  <script src="https://unpkg.com/docsify-ads@1.0.4/dist/docsify-ads.min.js"></script>
 </body>
 
 </html>

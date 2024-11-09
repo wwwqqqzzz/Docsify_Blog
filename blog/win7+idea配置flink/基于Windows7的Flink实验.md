@@ -18,7 +18,6 @@ package "开发环境" {
 [Flink] --> [IDEA]
 [IDEA] --> [Scala 环境]
 @enduml
-
 ```
 
 
