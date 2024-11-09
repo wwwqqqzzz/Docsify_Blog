@@ -2,11 +2,26 @@
 
 ------
 
-- [Flink项目初始化](#flink项目初始化)
+```plantuml
+@startuml
+package "Flink 环境" {
+  [Flink] --> [安装包]
+  [Flink] --> [配置环境变量]
+  [Flink] --> [bat 文件]
+}
 
-- [TOC]
+package "开发环境" {
+  [IDEA] --> [Scala 插件]
+  [IDEA] --> [Maven 插件]
+}
 
-  
+[Flink] --> [IDEA]
+[IDEA] --> [Scala 环境]
+@enduml
+
+```
+
+
 
 ---
 

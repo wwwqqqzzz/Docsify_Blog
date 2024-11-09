@@ -1,5 +1,35 @@
 # Linux 安装配置 Nginx
 
+
+
+```plantuml
+@startuml
+start
+
+:查看环境;
+:检查网络连接;
+if (网络可用?) then (yes)
+  :添加 Yum 源;
+  :安装 Nginx;
+  :配置服务;
+  :设置防火墙;
+  :查看网页;
+  if (网页显示成功?) then (yes)
+    :显示 "Welcome to nginx!";
+  else (no)
+    :检查配置或网络;
+  endif
+else (no)
+  :检查网络连接问题;
+endif
+
+stop
+@enduml
+
+```
+
+
+
 ## 前言
 
 我在下载 `Nginx` 的时候出现报错
